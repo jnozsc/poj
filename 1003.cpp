@@ -1,18 +1,12 @@
 #include <iostream>
 using namespace std;
 
-float hangoverResult(int card) {
-    float result = 0;
-    for (int i = 2; i <= card; i++) {
-        result += 1.0 / i;
-    }
-    return result;
-}
-
 int hangover(float input) {
     int result = 2;
-    while (hangoverResult(result) < input) {
+    float sum = 1.0/result;
+    while (sum < input) {
         result++;
+        sum+=1.0/result;
     }
     return result - 1;
 }
